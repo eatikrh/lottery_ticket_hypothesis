@@ -41,6 +41,22 @@ The IMP curve shows test loss vs % weights kept. A well-shaped curve demonstrate
 ## 📂 Output Files
 
 - `imp_recovery.png` – Test loss vs sparsity plot
+# 📚 Reference
+
+This project builds on the ideas from:
+
+- [The Lottery Ticket Hypothesis (Frankle & Carbin, ICLR 2019)](https://arxiv.org/pdf/1803.03635v5)
+
+The paper proposes that dense, randomly initialized networks contain smaller subnetworks that can be trained in isolation to match the performance of the full model — so long as they're reset to the same initial weights and trained properly.
+
+## 🤔 Does DeepSeek Use the Lottery Ticket Hypothesis?
+
+While DeepSeek does not explicitly use the Lottery Ticket Hypothesis (LTH) or iterative pruning, its goals — reducing training cost while maintaining competitive performance — strongly resonate with the *philosophy* behind LTH:
+
+> “You don’t need all the parameters — you just need the right ones, trained the right way.”
+
+However, DeepSeek focuses on system-level efficiency (e.g., mixed precision, GPU optimization) rather than structural sparsity or subnetwork discovery. There is no current public evidence that DeepSeek applies LTH-like weight pruning or rewinding techniques during training.
+
 
 ## 🛠 Requirements
 
@@ -53,3 +69,6 @@ The IMP curve shows test loss vs % weights kept. A well-shaped curve demonstrate
 Install with:
 ```bash
 pip install torch matplotlib scikit-learn numpy
+
+
+#
